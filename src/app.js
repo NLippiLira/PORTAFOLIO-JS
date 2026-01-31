@@ -24,6 +24,11 @@ app.get('/biografia', (req, res) => {
 app.get('/bibliografia', (req, res) => {
   res.render('public/bibliography')
 })
+app.get('/proyectos', (req, res) => {
+  res.render('public/projects')
+})
+
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`)
