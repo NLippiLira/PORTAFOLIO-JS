@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.render('public/landing')
 })
 app.get('/home', (req, res) => {
-  res.send('Página principal en construcción 🚧')
+  res.render('public/home')
 })
 
 const PORT = process.env.PORT || 3000
