@@ -1,47 +1,16 @@
-<%- include('../layouts/app', { title: 'Contacto | Nicolás Lippi', body: `
-<section class="contact-section">
-  <div class="container">
+<h1>Contacto</h1>
 
-    <div class="row mb-5">
-      <div class="col-12 text-center" data-aos="fade-up">
-        <h1 class="fw-bold">Contacto</h1>
-        <p class="lead">
-          ¿Tienes una propuesta o proyecto en mente? Escríbeme.
-        </p>
-      </div>
-    </div>
+<% if (error) { %>
+  <p style="color:red;"><%= error %></p>
+<% } %>
 
-    <div class="row justify-content-center">
-      <div class="col-lg-8" data-aos="zoom-in">
+<% if (success) { %>
+  <p style="color:green;"><%= success %></p>
+<% } %>
 
-        <form method="POST" action="/contacto" class="contact-form">
-
-          <div class="mb-3">
-            <label class="form-label">Nombre</label>
-            <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Correo electrónico</label>
-            <input type="email" name="email" class="form-control" placeholder="tu@email.com" required>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Mensaje</label>
-            <textarea name="message" class="form-control" rows="5" placeholder="Cuéntame en qué puedo ayudarte" required></textarea>
-          </div>
-
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary btn-lg px-5">
-              Enviar mensaje
-            </button>
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-` }) %>
+<form method="POST" action="/contacto">
+  <input name="name" placeholder="Nombre" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Mensaje" required></textarea>
+  <button type="submit">Enviar</button>
+</form>

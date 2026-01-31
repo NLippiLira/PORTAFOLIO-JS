@@ -41,9 +41,8 @@ app.use('/', require('./routes/bibliographyRoutes'))
 
 app.use('/', require('./routes/projectRoutes'))
 
-app.get('/contacto', (req, res) => {
-  res.render('public/contact')
-})
+app.use('/', require('./routes/contactRoutes'))
+
 app.use('/admin', require('./routes/adminRoutes'))
 
 const PORT = process.env.PORT || 3000
