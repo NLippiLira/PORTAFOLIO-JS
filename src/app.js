@@ -37,9 +37,7 @@ app.get('/home', (req, res) => {
 
 app.use('/', require('./routes/biographyRoutes'))
 
-app.get('/bibliografia', (req, res) => {
-  res.render('public/bibliography')
-})
+app.use('/', require('./routes/bibliographyRoutes'))
 
 app.use('/', require('./routes/projectRoutes'))
 

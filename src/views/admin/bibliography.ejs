@@ -1,0 +1,29 @@
+<h2>Bibliografía</h2>
+
+<form method="POST" action="/admin/bibliografia">
+  <input name="title" placeholder="Título" required>
+  <input name="author" placeholder="Autor">
+  <input name="year" placeholder="Año">
+  <input name="url" placeholder="URL">
+  <button type="submit">Agregar</button>
+</form>
+
+<hr>
+
+<ul>
+  <% items.forEach(item => { %>
+    <li>
+      <strong><%= item.title %></strong>
+      <% if (item.author) { %> - <%= item.author %> <% } %>
+      <% if (item.year) { %> (<%= item.year %>) <% } %>
+
+      <% if (item.url) { %>
+        <a href="<%= item.url %>" target="_blank">Ver</a>
+      <% } %>
+
+      <form method="POST" action="/admin/bibliografia/<%= item.id %>/delete" style="display:inline;">
+        <button>Eliminar</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
