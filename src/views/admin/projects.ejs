@@ -1,0 +1,22 @@
+<h2>Proyectos</h2>
+
+<form method="POST" action="/admin/proyectos">
+  <input name="title" placeholder="Título" required>
+  <textarea name="description" placeholder="Descripción" required></textarea>
+  <input name="github_url" placeholder="GitHub URL">
+  <input name="demo_url" placeholder="Demo URL">
+  <button type="submit">Agregar</button>
+</form>
+
+<hr>
+
+<ul>
+  <% projects.forEach(p => { %>
+    <li>
+      <strong><%= p.title %></strong>
+      <form method="POST" action="/admin/proyectos/<%= p.id %>/delete" style="display:inline;">
+        <button>Eliminar</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>

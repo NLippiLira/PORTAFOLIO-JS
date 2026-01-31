@@ -41,9 +41,7 @@ app.get('/bibliografia', (req, res) => {
   res.render('public/bibliography')
 })
 
-app.get('/proyectos', (req, res) => {
-  res.render('public/projects')
-})
+app.use('/', require('./routes/projectRoutes'))
 
 app.get('/contacto', (req, res) => {
   res.render('public/contact')
