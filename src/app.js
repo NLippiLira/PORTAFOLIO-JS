@@ -27,6 +27,9 @@ app.get('/bibliografia', (req, res) => {
 app.get('/proyectos', (req, res) => {
   res.render('public/projects')
 })
+app.get('/contacto', (req, res) => {
+  res.render('public/contact')
+})
 
 
 const PORT = process.env.PORT || 3000

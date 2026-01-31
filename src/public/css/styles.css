@@ -225,3 +225,29 @@ body {
 .project-card .btn {
   align-self: flex-start;
 }
+
+/* CONTACT */
+.contact-section {
+  padding: 60px 20px;
+}
+
+.contact-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+}
+
+.contact-form .form-control {
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.contact-form button {
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(13,110,253,0.4);
+}
