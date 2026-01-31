@@ -1,5 +1,6 @@
 require('dotenv').config()
-require('./config/db')
+require('./config/db') // 👈 ahora sí fuerza conexión
+
 const express = require('express')
 const path = require('path')
 
@@ -12,28 +13,31 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-
 app.get('/', (req, res) => {
   res.render('public/landing')
 })
+
 app.get('/home', (req, res) => {
   res.render('public/home')
 })
+
 app.get('/biografia', (req, res) => {
   res.render('public/biography')
 })
+
 app.get('/bibliografia', (req, res) => {
   res.render('public/bibliography')
 })
+
 app.get('/proyectos', (req, res) => {
   res.render('public/projects')
 })
+
 app.get('/contacto', (req, res) => {
   res.render('public/contact')
 })
 
-
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`)
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`)
 })
