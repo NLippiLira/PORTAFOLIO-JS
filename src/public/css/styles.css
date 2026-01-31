@@ -124,3 +124,45 @@ body {
     margin-left: 200px;
   }
 }
+/* HERO */
+.hero-section {
+  padding: 60px 20px;
+}
+
+.hero-img {
+  max-width: 380px;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(13,110,253,0.4);
+}
+/* SKILLS */
+.skill-card {
+  padding: 30px 20px;
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.skill-card i {
+  font-size: 40px;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* PROJECTS */
+.project-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
