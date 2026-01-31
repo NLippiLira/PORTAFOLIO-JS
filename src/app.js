@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+
 app.get('/', (req, res) => {
   res.render('public/landing')
 })
@@ -19,6 +20,9 @@ app.get('/home', (req, res) => {
 })
 app.get('/biografia', (req, res) => {
   res.render('public/biography')
+})
+app.get('/bibliografia', (req, res) => {
+  res.render('public/bibliography')
 })
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
