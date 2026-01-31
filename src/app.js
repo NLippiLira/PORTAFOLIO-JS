@@ -13,6 +13,20 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+const session = require('express-session')
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60, // 1 hora
+      secure: false // true solo con https
+    }
+  })
+)
+
 app.get('/', (req, res) => {
   res.render('public/landing')
 })
@@ -21,9 +35,7 @@ app.get('/home', (req, res) => {
   res.render('public/home')
 })
 
-app.get('/biografia', (req, res) => {
-  res.render('public/biography')
-})
+app.use('/', require('./routes/biographyRoutes'))
 
 app.get('/bibliografia', (req, res) => {
   res.render('public/bibliography')
@@ -36,6 +48,7 @@ app.get('/proyectos', (req, res) => {
 app.get('/contacto', (req, res) => {
   res.render('public/contact')
 })
+app.use('/admin', require('./routes/adminRoutes'))
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {

@@ -1,0 +1,8 @@
+<h2>Editar Biografía</h2>
+
+<form method="POST" action="/admin/biografia">
+  <textarea name="content" rows="10" required>
+    <%= bio ? bio.content : '' %>
+  </textarea>
+  <button type="submit">Guardar</button>
+</form>
