@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h3 class="mb-0">Biografía</h3>
+
+  <a href="/admin/biografia/nueva" class="btn btn-primary">
+    ➕ Nueva Biografía
+  </a>
+</div>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Título</th>
+          <th>Estado</th>
+          <th class="text-end">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% biografias.forEach(bio => { %>
+          <tr>
+            <td><%= bio.titulo %></td>
+            <td>
+              <span class="badge bg-success">Activo</span>
+            </td>
+            <td class="text-end">
+              <a href="/admin/biografia/editar/<%= bio.id %>"
+                 class="btn btn-sm btn-outline-secondary">
+                ✏️
+              </a>
+
+              <form action="/admin/biografia/eliminar/<%= bio.id %>"
+                    method="POST"
+                    class="d-inline delete-form">
+                <button class="btn btn-sm btn-outline-danger">
+                  🗑
+                </button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

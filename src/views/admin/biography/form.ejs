@@ -1,0 +1,41 @@
+<h3 class="mb-4">
+  <%= bio ? 'Editar Biografía' : 'Nueva Biografía' %>
+</h3>
+
+<div class="card shadow-sm">
+  <div class="card-body">
+
+    <form method="POST"
+          action="<%= bio ? '/admin/biografia/editar/' + bio.id : '/admin/biografia/nueva' %>">
+
+      <div class="mb-3">
+        <label class="form-label">Título</label>
+        <input type="text"
+               name="titulo"
+               class="form-control"
+               required
+               value="<%= bio ? bio.titulo : '' %>">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contenido</label>
+        <textarea name="contenido"
+                  class="form-control"
+                  rows="6"
+                  required><%= bio ? bio.contenido : '' %></textarea>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <a href="/admin/biografia" class="btn btn-outline-secondary">
+          Cancelar
+        </a>
+
+        <button class="btn btn-primary">
+          Guardar
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

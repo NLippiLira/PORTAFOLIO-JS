@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Portafolio NL</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS Admin -->
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand mb-0 h1">Panel Admin</span>
+
+    <form action="/admin/logout" method="POST">
+      <button class="btn btn-outline-light btn-sm">Cerrar sesión</button>
+    </form>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <!-- Sidebar -->
+     <aside class="col-md-2 bg-white border-end vh-100 p-3">
+  <h6 class="text-muted mb-3">Administración</h6>
+
+  <ul class="nav flex-column gap-1 admin-sidebar">
+    <li class="nav-item">
+      <a href="/admin/dashboard"
+         class="nav-link <%= active === 'dashboard' ? 'active' : '' %>">
+        📊 Dashboard
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/admin/biografia"
+         class="nav-link <%= active === 'biografia' ? 'active' : '' %>">
+        👤 Biografía
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/admin/bibliografia"
+         class="nav-link <%= active === 'bibliografia' ? 'active' : '' %>">
+        📚 Bibliografía
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/admin/proyectos"
+         class="nav-link <%= active === 'proyectos' ? 'active' : '' %>">
+        🧩 Proyectos
+      </a>
+    </li>
+  </ul>
+</aside>
+
+      <!-- Content -->
+      <main class="col-md-10 p-4">
+        <%- body %>
+      </main>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
