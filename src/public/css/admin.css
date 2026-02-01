@@ -33,3 +33,10 @@ table td, table th {
 .btn-outline-danger:hover {
   color: #fff;
 }
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.card {
+  border-radius: 10px;
+}

@@ -9,7 +9,27 @@
 
   <!-- CSS Admin -->
   <link rel="stylesheet" href="/css/admin.css">
+
+  <div class="d-flex justify-content-end mb-3">
+  <a href="/admin/logout" class="btn btn-sm btn-outline-danger">
+    Cerrar sesión
+  </a>
+</div>
+
 </head>
+<% if (success.length) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success[0] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% } %>
+
+<% if (error.length) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error[0] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% } %>
 <body class="bg-light">
 
   <!-- Navbar -->

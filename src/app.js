@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 const session = require('express-session')
+const flash = require('connect-flash')
 
 app.use(
   session({
@@ -33,6 +34,21 @@ app.get('/', (req, res) => {
 
 app.get('/home', (req, res) => {
   res.render('public/home')
+})
+
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'supersecret',
+  resave: false,
+  saveUninitialized: false
+}))
+
+app.use(flash())
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash('success')
+  res.locals.error = req.flash('error')
+  next()
 })
 
 app.use('/', require('./routes/biographyRoutes'))

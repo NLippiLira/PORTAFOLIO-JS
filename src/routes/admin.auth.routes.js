@@ -1,13 +1,13 @@
+const express = require('express')
+const router = express.Router()
 const bcrypt = require('bcrypt')
 const pool = require('../config/db')
 
-exports.showLogin = (req, res) => {
-  res.render('admin/login', {
-    error: req.flash('error') || []
-  })
-}
+router.get('/login', (req, res) => {
+  res.render('admin/login', { error: req.flash('error') })
+})
 
-exports.login = async (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body
 
   try {
@@ -17,19 +17,18 @@ exports.login = async (req, res) => {
     )
 
     if (result.rows.length === 0) {
-      req.flash('error', 'Usuario no encontrado')
+      req.flash('error', 'Credenciales inválidas')
       return res.redirect('/admin/login')
     }
 
     const admin = result.rows[0]
-    const isValid = await bcrypt.compare(password, admin.password)
+    const valid = await bcrypt.compare(password, admin.password)
 
-    if (!isValid) {
-      req.flash('error', 'Contraseña incorrecta')
+    if (!valid) {
+      req.flash('error', 'Credenciales inválidas')
       return res.redirect('/admin/login')
     }
 
-    // 🔐 SESIÓN CORRECTA
     req.session.admin = {
       id: admin.id,
       username: admin.username
@@ -38,14 +37,15 @@ exports.login = async (req, res) => {
     res.redirect('/admin/dashboard')
 
   } catch (error) {
-    console.error(error)
-    req.flash('error', 'Error interno')
+    req.flash('error', 'Error del servidor')
     res.redirect('/admin/login')
   }
-}
+})
 
-exports.logout = (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/admin/login')
   })
-}
+})
+
+module.exports = router
