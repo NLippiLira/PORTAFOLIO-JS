@@ -1,31 +1,31 @@
-const mailService = require('../services/mailService')
+const pool = require('../config/db')
 
 exports.showForm = (req, res) => {
-  res.render('public/contact', { success: null, error: null })
+  res.render('public/contact', {
+    success: req.flash('success'),
+    error: req.flash('error')
+  })
 }
 
-exports.send = async (req, res) => {
+exports.submitForm = async (req, res) => {
   const { name, email, message } = req.body
 
   if (!name || !email || !message) {
-    return res.render('public/contact', {
-      error: 'Todos los campos son obligatorios',
-      success: null
-    })
+    req.flash('error', 'Todos los campos son obligatorios')
+    return res.redirect('/contacto')
   }
 
   try {
-    await mailService.sendContactMail({ name, email, message })
+    await pool.query(
+      'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3)',
+      [name, email, message]
+    )
 
-    res.render('public/contact', {
-      success: 'Mensaje enviado correctamente',
-      error: null
-    })
+    req.flash('success', 'Mensaje enviado correctamente 🚀')
+    res.redirect('/contacto')
   } catch (error) {
     console.error(error)
-    res.render('public/contact', {
-      error: 'Error al enviar el mensaje',
-      success: null
-    })
+    req.flash('error', 'Error al enviar el mensaje')
+    res.redirect('/contacto')
   }
 }

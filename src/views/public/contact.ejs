@@ -1,16 +1,30 @@
-<h1>Contacto</h1>
+<div class="container py-5">
+  <h2 class="mb-4">Contacto</h2>
 
-<% if (error) { %>
-  <p style="color:red;"><%= error %></p>
-<% } %>
+  <% if (success.length) { %>
+    <div class="alert alert-success"><%= success[0] %></div>
+  <% } %>
 
-<% if (success) { %>
-  <p style="color:green;"><%= success %></p>
-<% } %>
+   <% if (error && error.length > 0) { %>
+    <div class="alert alert-danger"><%= error[0] %></div>
+  <% } %>
 
-<form method="POST" action="/contacto">
-  <input name="name" placeholder="Nombre" required>
-  <input name="email" type="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Mensaje" required></textarea>
-  <button type="submit">Enviar</button>
-</form>
+  <form method="POST" action="/contacto">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label>Mensaje</label>
+      <textarea name="message" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <button class="btn btn-primary">Enviar mensaje</button>
+  </form>
+</div>
