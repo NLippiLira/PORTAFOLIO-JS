@@ -3,6 +3,7 @@ const router = express.Router()
 
 const authController = require('../controllers/authController')
 const adminAuth = require('../middlewares/adminAuth')
+const adminController = require('../controllers/adminController')
 
 // 🔓 RUTAS PÚBLICAS
 router.get('/login', authController.showLogin)
@@ -13,12 +14,7 @@ router.get('/logout', authController.logout)
 router.use(adminAuth)
 
 // DASHBOARD
-router.get('/dashboard', (req, res) => {
-  res.render('admin/dashboard', {
-    layout: 'admin/layout',
-    active: 'dashboard'
-  })
-})
+router.get('/dashboard', adminController.dashboard)
 
 // BIOGRAFÍA
 router.get('/biografia', (req, res) => {
