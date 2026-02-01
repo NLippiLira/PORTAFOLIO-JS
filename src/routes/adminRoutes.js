@@ -7,7 +7,11 @@ const isAuthenticated = require('../middlewares/isAuthenticated')
 router.get('/login', authController.showLogin)
 router.post('/login', authController.login)
 router.get('/logout', authController.logout)
-
+exports.showLogin = (req, res) => {
+  res.render('admin/login', {
+    error: req.flash('error') || []
+  })
+}
 router.get('/dashboard', (req, res) => {
   res.render('admin/dashboard', {
     layout: 'admin/layout',
