@@ -5,6 +5,9 @@ const authController = require('../controllers/authController')
 const adminAuth = require('../middlewares/adminAuth')
 const adminController = require('../controllers/adminController')
 const contactAdminController = require('../controllers/contactAdminController')
+const upload = require('../config/multer')
+const cvController = require('../controllers/cvController')
+
 
 // 🔓 RUTAS PÚBLICAS
 router.get('/login', authController.showLogin)
@@ -39,6 +42,10 @@ router.get('/proyectos', (req, res) => {
   })
 })
 
+// CV
+router.get('/cv', cvController.index)
+router.post('/cv', upload.single('cv'), cvController.upload)
+router.post('/cv/delete', cvController.delete)
 
 router.get('/contactos', contactAdminController.inbox)
 router.get('/contactos/:id', contactAdminController.showMessage)

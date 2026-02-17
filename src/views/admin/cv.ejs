@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2>Gestión de Curriculum</h2>
+
+  <% if (cv) { %>
+    <div class="alert alert-success">
+      CV actual: <strong><%= cv.originalname %></strong>
+      <br>
+      <a href="/uploads/cv.pdf" target="_blank" class="btn btn-sm btn-outline-dark mt-2">
+        Ver CV
+      </a>
+
+      <form action="/admin/cv/delete" method="POST" class="mt-2">
+        <button class="btn btn-sm btn-danger">
+          Eliminar CV
+        </button>
+      </form>
+    </div>
+  <% } %>
+
+  <form action="/admin/cv" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <input type="file" name="cv" class="form-control" required>
+    </div>
+
+    <button class="btn btn-primary">
+      Subir / Reemplazar CV
+    </button>
+  </form>
+</div>
