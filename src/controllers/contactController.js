@@ -1,7 +1,7 @@
 const pool = require('../config/db')
 
 exports.showForm = (req, res) => {
-  res.render('pages/contact', {
+  res.render('public/contact', {
     success: req.flash('success'),
     error: req.flash('error')
   })

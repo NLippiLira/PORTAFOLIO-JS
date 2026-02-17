@@ -4,7 +4,7 @@ const router = express.Router()
 const authController = require('../controllers/authController')
 const adminAuth = require('../middlewares/adminAuth')
 const adminController = require('../controllers/adminController')
-const contactAdminController = require('../controllers/admin/contactAdminController')
+const contactAdminController = require('../controllers/contactAdminController')
 
 // 🔓 RUTAS PÚBLICAS
 router.get('/login', authController.showLogin)
