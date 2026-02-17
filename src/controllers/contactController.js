@@ -30,3 +30,20 @@ exports.sendMessage = async (req, res) => {
     res.redirect('/contacto')
   }
 }
+
+exports.listMessages = async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM contacts ORDER BY created_at DESC'
+    )
+
+    res.render('admin/messages', {
+      messages: result.rows
+    })
+
+  } catch (error) {
+    console.error(error)
+    req.flash('error', 'Error al cargar mensajes')
+    res.redirect('/admin/dashboard')
+  }
+}
