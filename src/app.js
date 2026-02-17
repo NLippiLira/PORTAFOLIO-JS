@@ -1,8 +1,10 @@
 require('dotenv').config()
-require('./config/db') // 👈 ahora sí fuerza conexión
+require('./config/db')
 
 const express = require('express')
 const path = require('path')
+const session = require('express-session')
+const flash = require('connect-flash')
 
 const app = express()
 
@@ -13,37 +15,18 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-
-const session = require('express-session')
-const flash = require('connect-flash')
-
+// ✅ SESSION SOLO UNA VEZ
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 1000 * 60 * 60, // 1 hora
-      secure: false // true solo con https
+      maxAge: 1000 * 60 * 60,
+      secure: false
     }
   })
 )
-
-
-app.get('/', (req, res) => {
-  res.render('public/landing')
-})
-
-app.get('/home', (req, res) => {
-  res.render('public/home')
-})
-
-
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'supersecret',
-  resave: false,
-  saveUninitialized: false
-}))
 
 app.use(flash())
 
@@ -53,16 +36,23 @@ app.use((req, res, next) => {
   next()
 })
 
+app.get('/', (req, res) => {
+  res.render('public/landing')
+})
+
+app.get('/home', (req, res) => {
+  res.render('public/home')
+})
+
 const contactRoutes = require('./routes/contactRoutes')
 app.use('/contacto', contactRoutes)
 
 app.use('/', require('./routes/biographyRoutes'))
-
 app.use('/', require('./routes/bibliographyRoutes'))
-
 app.use('/', require('./routes/projectRoutes'))
 
-app.use('/', require('./routes/contactRoutes'))
+// ❌ elimina esta línea duplicada
+// app.use('/', require('./routes/contactRoutes'))
 
 app.use('/admin', require('./routes/adminRoutes'))
 

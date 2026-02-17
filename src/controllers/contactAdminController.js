@@ -1,15 +1,26 @@
 const pool = require('../config/db')
 
 exports.inbox = async (req, res) => {
-  const result = await pool.query(
-    'SELECT * FROM contacts ORDER BY created_at DESC'
-  )
+  try {
+    const messages = await pool.query(
+      'SELECT * FROM contacts ORDER BY created_at DESC'
+    )
 
-  res.render('admin/contacts/inbox', {
-    layout: 'admin/layout',
-    messages: result.rows,
-    active: 'contactos'
-  })
+    const unread = await pool.query(
+      'SELECT COUNT(*) FROM contacts WHERE is_read = false'
+    )
+
+    res.render('admin/contacts/inbox', {
+      layout: 'admin/layout',
+      messages: messages.rows,
+      unreadCount: parseInt(unread.rows[0].count),
+      active: 'contactos'
+    })
+
+  } catch (error) {
+    console.error(error)
+    res.redirect('/admin/dashboard')
+  }
 }
 
 exports.showMessage = async (req, res) => {

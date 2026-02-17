@@ -76,6 +76,15 @@
         🧩 Proyectos
       </a>
     </li>
+
+    <li>
+  <a href="/admin/contactos">
+    Contactos
+    <% if (typeof unreadCount !== 'undefined' && unreadCount > 0) { %>
+      <span class="badge bg-danger"><%= unreadCount %></span>
+    <% } %>
+  </a>
+</li>
   </ul>
 </aside>
 
