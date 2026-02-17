@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+
 const session = require('express-session')
 const flash = require('connect-flash')
 
@@ -51,6 +52,9 @@ app.use((req, res, next) => {
   res.locals.error = req.flash('error')
   next()
 })
+
+const contactRoutes = require('./routes/contactRoutes')
+app.use('/contacto', contactRoutes)
 
 app.use('/', require('./routes/biographyRoutes'))
 

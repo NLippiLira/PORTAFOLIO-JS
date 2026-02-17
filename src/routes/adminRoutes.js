@@ -4,6 +4,7 @@ const router = express.Router()
 const authController = require('../controllers/authController')
 const adminAuth = require('../middlewares/adminAuth')
 const adminController = require('../controllers/adminController')
+const contactAdminController = require('../controllers/admin/contactAdminController')
 
 // 🔓 RUTAS PÚBLICAS
 router.get('/login', authController.showLogin)
@@ -37,5 +38,11 @@ router.get('/proyectos', (req, res) => {
     active: 'proyectos'
   })
 })
+
+
+router.get('/contactos', contactAdminController.inbox)
+router.get('/contactos/:id', contactAdminController.showMessage)
+router.post('/contactos/:id/eliminar', contactAdminController.deleteMessage)
+
 
 module.exports = router

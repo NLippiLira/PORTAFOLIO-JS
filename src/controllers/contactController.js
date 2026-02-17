@@ -1,13 +1,13 @@
 const pool = require('../config/db')
 
 exports.showForm = (req, res) => {
-  res.render('public/contact', {
+  res.render('pages/contact', {
     success: req.flash('success'),
     error: req.flash('error')
   })
 }
 
-exports.submitForm = async (req, res) => {
+exports.sendMessage = async (req, res) => {
   const { name, email, message } = req.body
 
   if (!name || !email || !message) {
@@ -17,11 +17,12 @@ exports.submitForm = async (req, res) => {
 
   try {
     await pool.query(
-      'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3)',
+      `INSERT INTO contacts (name, email, message)
+       VALUES ($1, $2, $3)`,
       [name, email, message]
     )
 
-    req.flash('success', 'Mensaje enviado correctamente 🚀')
+    req.flash('success', 'Mensaje enviado correctamente')
     res.redirect('/contacto')
   } catch (error) {
     console.error(error)

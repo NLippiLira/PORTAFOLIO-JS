@@ -1,0 +1,30 @@
+<h2>📬 Mensajes de Contacto</h2>
+
+<table class="table table-hover mt-4">
+  <thead class="table-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% messages.forEach(msg => { %>
+      <tr class="<%= msg.is_read ? '' : 'fw-bold' %>">
+        <td><%= msg.name %></td>
+        <td><%= msg.email %></td>
+        <td><%= msg.created_at.toLocaleString() %></td>
+        <td>
+          <%= msg.is_read ? 'Leído' : 'Nuevo' %>
+        </td>
+        <td>
+          <a href="/admin/contactos/<%= msg.id %>" class="btn btn-sm btn-primary">
+            Ver
+          </a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

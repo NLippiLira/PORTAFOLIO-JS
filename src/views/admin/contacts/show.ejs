@@ -1,0 +1,15 @@
+<h2>📨 Mensaje</h2>
+
+<div class="card mt-3">
+  <div class="card-body">
+    <h5><%= message.name %></h5>
+    <p><strong>Email:</strong> <%= message.email %></p>
+    <hr>
+    <p><%= message.message %></p>
+
+    <form method="POST" action="/admin/contactos/<%= message.id %>/eliminar">
+      <button class="btn btn-danger mt-3">Eliminar</button>
+      <a href="/admin/contactos" class="btn btn-secondary mt-3">Volver</a>
+    </form>
+  </div>
+</div>
