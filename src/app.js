@@ -61,9 +61,10 @@ app.get('/home', (req, res) => {
   res.render('public/home')
 })
 
-app.use('/contacto', require('./routes/contactRoutes'))
+app.use('/', require('./routes/contactRoutes'))
 app.use('/', require('./routes/biographyRoutes'))
 app.use('/', require('./routes/bibliographyRoutes'))
+app.use('/', require('./routes/projectRoutes'))
 app.use('/', require('./routes/projectRoutes'))
 
 /* ================================
