@@ -1,16 +1,46 @@
-<div class="container-fluid">
-  <h2 class="mb-1">Dashboard</h2>
-  <p class="text-muted">Bienvenido Nicolás, administra tu portafolio</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Portafolio NL</title>
 
-  <div class="row g-4 mt-4">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS Global -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- CSS Admin -->
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+
+<div class="container-fluid admin-dashboard">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="dashboard-title">Dashboard</h2>
+      <p class="dashboard-subtitle">
+        Bienvenido Nicolás, administra tu portafolio
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4">
 
     <!-- Biografía -->
-    <div class="col-md-3">
-      <div class="card shadow-sm admin-card">
+    <div class="col-xl-3 col-md-6">
+      <div class="card admin-card stat-card">
         <div class="card-body">
-          <h6 class="text-muted">Biografía</h6>
-          <h3><%= stats.biografias %></h3>
-          <a href="/admin/biografia" class="btn btn-sm btn-outline-primary mt-2">
+          <div class="stat-icon bg-primary">
+            <i class="bi bi-person"></i>
+          </div>
+          <h6 class="stat-label">Biografía</h6>
+          <h3 class="stat-number"><%= stats.biografias %></h3>
+          <a href="/admin/biografia" class="btn btn-sm btn-primary mt-3 w-100">
             Gestionar
           </a>
         </div>
@@ -18,39 +48,47 @@
     </div>
 
     <!-- Bibliografía -->
-<div class="col-md-3">
-  <div class="card shadow-sm admin-card">
-    <div class="card-body">
-      <h6 class="text-muted">Bibliografía</h6>
-      <h3><%= stats.bibliografias || 0 %></h3>
-      <a href="/admin/bibliografia" class="btn btn-sm btn-outline-primary mt-2">
-        Gestionar
-      </a>
-    </div>
-  </div>
-</div>
-
-
-    <!-- Proyectos -->
-    <div class="col-md-3">
-      <div class="card shadow-sm admin-card">
+    <div class="col-xl-3 col-md-6">
+      <div class="card admin-card stat-card">
         <div class="card-body">
-          <h6 class="text-muted">Proyectos</h6>
-          <h3><%= stats.proyectos %></h3>
-          <a href="/admin/proyectos" class="btn btn-sm btn-outline-primary mt-2">
+          <div class="stat-icon bg-info">
+            <i class="bi bi-journal-bookmark"></i>
+          </div>
+          <h6 class="stat-label">Bibliografía</h6>
+          <h3 class="stat-number"><%= stats.bibliografias %></h3>
+          <a href="/admin/bibliografia" class="btn btn-sm btn-primary mt-3 w-100">
             Gestionar
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Contactos -->
-    <div class="col-md-3">
-      <div class="card shadow-sm admin-card">
+    <!-- Proyectos -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card admin-card stat-card">
         <div class="card-body">
-          <h6 class="text-muted">Mensajes</h6>
-          <h3><%= stats.mensajes %></h3>
-          <a href="/admin/contactos" class="btn btn-sm btn-outline-primary mt-2">
+          <div class="stat-icon bg-success">
+            <i class="bi bi-kanban"></i>
+          </div>
+          <h6 class="stat-label">Proyectos</h6>
+          <h3 class="stat-number"><%= stats.proyectos %></h3>
+          <a href="/admin/proyectos" class="btn btn-sm btn-primary mt-3 w-100">
+            Gestionar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensajes -->
+    <div class="col-xl-3 col-md-6">
+      <div class="card admin-card stat-card">
+        <div class="card-body">
+          <div class="stat-icon bg-warning">
+            <i class="bi bi-envelope"></i>
+          </div>
+          <h6 class="stat-label">Mensajes</h6>
+          <h3 class="stat-number"><%= stats.mensajes %></h3>
+          <a href="/admin/contactos" class="btn btn-sm btn-primary mt-3 w-100">
             Ver
           </a>
         </div>
@@ -58,13 +96,16 @@
     </div>
 
     <!-- CV -->
-    <div class="col-md-3">
-      <div class="card shadow-sm admin-card">
+    <div class="col-xl-3 col-md-6">
+      <div class="card admin-card stat-card">
         <div class="card-body">
-          <h6 class="text-muted">Curriculum</h6>
-          <h3>PDF</h3>
-          <a href="/admin/cv" class="btn btn-sm btn-outline-primary mt-2">
-            Subir
+          <div class="stat-icon bg-dark">
+            <i class="bi bi-file-earmark-pdf"></i>
+          </div>
+          <h6 class="stat-label">Curriculum</h6>
+          <h3 class="stat-number">PDF</h3>
+          <a href="/admin/cv" class="btn btn-sm btn-primary mt-3 w-100">
+            Gestionar
           </a>
         </div>
       </div>

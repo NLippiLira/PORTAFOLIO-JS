@@ -1,29 +1,64 @@
-<div class="container mt-4">
-  <h2>Gestión de Curriculum</h2>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin | Portafolio NL</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS Global -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- CSS Admin -->
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+
+<div class="admin-section">
+
+  <div class="admin-header mb-4">
+    <h3 class="admin-title">Gestión de Curriculum</h3>
+    <p class="admin-subtitle">Sube o reemplaza tu CV en formato PDF.</p>
+  </div>
 
   <% if (cv) { %>
-    <div class="alert alert-success">
-      CV actual: <strong><%= cv.originalname %></strong>
-      <br>
-      <a href="/uploads/cv.pdf" target="_blank" class="btn btn-sm btn-outline-dark mt-2">
-        Ver CV
-      </a>
+    <div class="card admin-card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="mb-2">CV Actual</h5>
+        <p><strong><%= cv.originalname %></strong></p>
 
-      <form action="/admin/cv/delete" method="POST" class="mt-2">
-        <button class="btn btn-sm btn-danger">
-          Eliminar CV
-        </button>
-      </form>
+        <div class="d-flex gap-2">
+          <a href="/uploads/cv.pdf" target="_blank" class="btn btn-outline-dark btn-sm">
+            Ver CV
+          </a>
+
+          <form action="/admin/cv/delete" method="POST">
+            <button class="btn btn-outline-danger btn-sm">
+              Eliminar CV
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   <% } %>
 
-  <form action="/admin/cv" method="POST" enctype="multipart/form-data">
-    <div class="mb-3">
-      <input type="file" name="cv" class="form-control" required>
-    </div>
+  <div class="card admin-card shadow-sm">
+    <div class="card-body">
+      <form action="/admin/cv" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label class="form-label">Seleccionar archivo PDF</label>
+          <input type="file" name="cv" class="form-control" accept="application/pdf" required>
+        </div>
 
-    <button class="btn btn-primary">
-      Subir / Reemplazar CV
-    </button>
-  </form>
+        <button class="btn btn-primary">
+          Subir / Reemplazar CV
+        </button>
+      </form>
+    </div>
+  </div>
+
 </div>

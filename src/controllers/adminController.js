@@ -2,17 +2,17 @@ const pool = require('../config/db')
 
 exports.dashboard = async (req, res) => {
   try {
-    // Ejecutar consultas en paralelo (más eficiente)
+
     const [
       bioCount,
       projectCount,
       messageCount,
       bibliographyCount
     ] = await Promise.all([
-      pool.query('SELECT COUNT(*) FROM biografia'),
-      pool.query('SELECT COUNT(*) FROM proyectos'),
-      pool.query('SELECT COUNT(*) FROM contactos'),
-      pool.query('SELECT COUNT(*) FROM bibliografia')
+      pool.query('SELECT COUNT(*) FROM biographies'),
+      pool.query('SELECT COUNT(*) FROM projects'),
+      pool.query('SELECT COUNT(*) FROM contact_messages'),
+      pool.query('SELECT COUNT(*) FROM bibliographies')
     ])
 
     res.render('admin/dashboard', {

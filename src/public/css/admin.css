@@ -1,8 +1,48 @@
+/* =====================================================
+   ADMIN PANEL - PORTAFOLIO NL
+   Diseño moderno tipo SaaS
+===================================================== */
+
+/* ================================
+   BASE
+================================ */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #f5f7fa;
+}
+
+.card {
+  border: none;
+  border-radius: 14px;
+}
+
+.admin-card {
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+table td,
+table th {
+  vertical-align: middle;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
 .admin-sidebar .nav-link {
   color: #333;
   padding: 0.6rem 0.8rem;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 
 .admin-sidebar .nav-link:hover {
@@ -16,27 +56,196 @@
   font-weight: 500;
 }
 
-.admin-card {
-  border-radius: 10px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.admin-sidebar .badge {
+  font-size: 0.7rem;
 }
 
-.admin-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+/* ================================
+   DASHBOARD
+================================ */
+
+.admin-dashboard {
+  padding-top: 10px;
 }
 
-table td, table th {
-  vertical-align: middle;
+.dashboard-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.dashboard-subtitle {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 16px;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.stat-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* ================================
+   SECCIONES ADMIN (BIOGRAFÍA, PROYECTOS, ETC)
+================================ */
+
+.admin-section h4 {
+  font-weight: 600;
+}
+
+.admin-header {
+  margin-bottom: 20px;
+}
+
+/* ================================
+   TABLAS ADMIN
+================================ */
+
+.admin-table {
+  margin-bottom: 0;
+}
+
+.admin-table th {
+  background-color: #f8f9fa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #6c757d;
+}
+
+.admin-table td {
+  font-size: 0.9rem;
+}
+
+.admin-table tr {
+  transition: 0.2s ease;
+}
+
+.admin-table tr:hover {
+  background-color: #f4f6f9;
+}
+
+/* ================================
+   FORMULARIOS
+================================ */
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.form-control {
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0d6efd;
+}
+
+textarea.form-control {
+  resize: none;
+}
+
+.btn {
+  border-radius: 8px;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
 }
 
 .btn-outline-danger:hover {
   color: #fff;
 }
-body {
-  font-family: system-ui, sans-serif;
+
+/* ================================
+   MENSAJES / INBOX
+================================ */
+
+.admin-messages li {
+  transition: 0.2s ease;
+  cursor: pointer;
 }
 
-.card {
+.admin-messages li:hover {
+  background-color: #f8f9fa;
+}
+
+.admin-messages strong {
+  font-size: 0.9rem;
+}
+
+.admin-messages .small {
+  font-size: 0.75rem;
+}
+
+/* ================================
+   CV
+================================ */
+
+.cv-card i {
+  font-size: 48px;
+}
+
+.cv-card hr {
+  margin: 20px 0;
+}
+
+/* ================================
+   ALERTAS
+================================ */
+
+.alert {
   border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+/* ================================
+   ANIMACIÓN SUAVE GLOBAL
+================================ */
+
+* {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }

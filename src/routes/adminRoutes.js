@@ -20,13 +20,21 @@ router.use(adminAuth)
 // DASHBOARD
 router.get('/dashboard', adminController.dashboard)
 
-// BIOGRAFÍA
-router.get('/biografia', (req, res) => {
-  res.render('admin/biography/index', {
-    layout: 'admin/layout',
-    active: 'biografia'
-  })
-})
+router.get('/biografia', async (req, res) => {
+  try {
+    const biografias = await bio.findAll(); // o tu modelo real
+
+    res.render('admin/biography', {
+      layout: 'admin/layout',
+      active: 'biografia',
+      biografias
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.redirect('/admin');
+  }
+});
 
 router.get('/bibliografia', (req, res) => {
   res.render('admin/bibliography', {

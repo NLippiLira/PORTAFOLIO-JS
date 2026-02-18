@@ -7,7 +7,7 @@ exports.showPublic = async (req, res) => {
 
 exports.showAdminForm = async (req, res) => {
   const bio = await Biography.getBiography()
-  res.render('admin/biographyForm', { bio })
+  res.render('admin/biography', { bio })
 }
 
 exports.save = async (req, res) => {
