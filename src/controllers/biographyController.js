@@ -1,17 +1,96 @@
-const Biography = require('../models/biographyModel')
+const biographyModel = require('../models/biographyModel')
 
-exports.showPublic = async (req, res) => {
-  const bio = await Biography.getBiography()
-  res.render('public/biography', { bio })
-}
 
+// ==============================
+// ADMIN - LISTAR
+// ==============================
 exports.showAdminForm = async (req, res) => {
-  const bio = await Biography.getBiography()
-  res.render('admin/biography', { bio })
+  try {
+    const biografias = await biographyModel.getAllBiographies()
+
+    res.render('admin/biography', {
+      layout: 'admin/layout',
+      active: 'biografia',
+      biografias
+    })
+
+  } catch (error) {
+    console.error(error)
+    res.render('admin/biography', {
+      layout: 'admin/layout',
+      active: 'biografia',
+      biografias: []
+    })
+  }
 }
 
-exports.save = async (req, res) => {
-  const { content } = req.body
-  await Biography.saveBiography(content)
-  res.redirect('/admin/dashboard')
+
+// ==============================
+// CREAR
+// ==============================
+exports.create = async (req, res) => {
+  try {
+    const { title, content } = req.body
+
+    await biographyModel.createBiography(title, content)
+
+    res.redirect('/admin/biografia')
+
+  } catch (error) {
+    console.error(error)
+    res.redirect('/admin/biografia')
+  }
+}
+
+
+// ==============================
+// ACTUALIZAR
+// ==============================
+exports.update = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { title, content } = req.body
+
+    await biographyModel.updateBiography(id, title, content)
+
+    res.redirect('/admin/biografia')
+
+  } catch (error) {
+    console.error(error)
+    res.redirect('/admin/biografia')
+  }
+}
+
+
+// ==============================
+// ELIMINAR
+// ==============================
+exports.delete = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    await biographyModel.deleteBiography(id)
+
+    res.redirect('/admin/biografia')
+
+  } catch (error) {
+    console.error(error)
+    res.redirect('/admin/biografia')
+  }
+}
+
+
+// ==============================
+// PÚBLICO
+// ==============================
+exports.showPublic = async (req, res) => {
+  try {
+    const bio = await biographyModel.getBiography()
+
+    res.render('public/biography', { bio })
+
+  } catch (error) {
+    console.error(error)
+    res.redirect('/')
+  }
 }
