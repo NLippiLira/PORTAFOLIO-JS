@@ -1,15 +1,84 @@
-<h1>Bibliografía / Recursos</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bibliografía | Nicolás Lippi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<ul>
-  <% items.forEach(item => { %>
-    <li>
-      <strong><%= item.title %></strong>
-      <% if (item.author) { %> – <%= item.author %> <% } %>
-      <% if (item.year) { %> (<%= item.year %>) <% } %>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/public.css">
+</head>
 
-      <% if (item.url) { %>
-        <a href="<%= item.url %>" target="_blank">Acceder</a>
+<body>
+
+  <!-- HERO -->
+  <section class="biblio-hero d-flex align-items-center">
+    <div class="container text-center fade-in">
+      <h1 class="biblio-title">Bibliografía & Recursos</h1>
+      <p class="biblio-subtitle">
+        Fuentes, libros y recursos que respaldan mi formación y desarrollo profesional.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <section class="biblio-section py-5">
+    <div class="container">
+
+      <% if (items && items.length > 0) { %>
+
+        <div class="row g-4">
+
+          <% items.forEach((item, index) => { %>
+
+            <div class="col-md-6 col-lg-4 fade-in-up">
+
+              <div class="biblio-card h-100 shadow-sm p-4">
+
+                <h5 class="biblio-item-title mb-2">
+                  <%= item.title %>
+                </h5>
+
+                <% if (item.author || item.year) { %>
+                  <p class="biblio-meta mb-3">
+                    <% if (item.author) { %>
+                      <span><%= item.author %></span>
+                    <% } %>
+
+                    <% if (item.year) { %>
+                      <span> • <%= item.year %></span>
+                    <% } %>
+                  </p>
+                <% } %>
+
+                <% if (item.url) { %>
+                  <a href="<%= item.url %>"
+                     target="_blank"
+                     class="btn btn-outline-primary btn-sm rounded-3 mt-auto">
+                    Acceder
+                  </a>
+                <% } %>
+
+              </div>
+
+            </div>
+
+          <% }) %>
+
+        </div>
+
+      <% } else { %>
+
+        <div class="text-center text-muted py-5">
+          <h4>No hay recursos disponibles</h4>
+          <p>Pronto agregaré nuevas referencias.</p>
+        </div>
+
       <% } %>
-    </li>
-  <% }) %>
-</ul>
+
+    </div>
+  </section>
+
+</body>
+</html>
