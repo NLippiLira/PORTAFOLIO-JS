@@ -77,9 +77,9 @@ router.get('/biografia/editar/:id', async (req, res) => {
 // CREAR
 router.post('/biografia/nueva', async (req, res) => {
   try {
-    const { titulo, contenido } = req.body
+    const { title, content } = req.body
 
-    await biographyModel.createBiography(titulo, contenido)
+    await biographyModel.createBiography(title, content)
 
     res.redirect('/admin/biografia')
 
@@ -93,12 +93,12 @@ router.post('/biografia/nueva', async (req, res) => {
 // ACTUALIZAR
 router.post('/biografia/editar/:id', async (req, res) => {
   try {
-    const { titulo, contenido } = req.body
+    const { title, content } = req.body
 
     await biographyModel.updateBiography(
       req.params.id,
-      titulo,
-      contenido
+      title,
+      content,
     )
 
     res.redirect('/admin/biografia')

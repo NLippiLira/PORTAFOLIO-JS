@@ -23,7 +23,6 @@
       <h5 class="mb-3">Nueva Biografía</h5>
 
       <form action="/admin/biografia" method="POST">
-
         <div class="mb-3">
           <label class="form-label">Título</label>
           <input type="text" name="title" class="form-control" required>
@@ -37,11 +36,10 @@
         <button class="btn btn-primary rounded-3 px-4">
           Guardar
         </button>
-
       </form>
+
     </div>
   </div>
-
 
   <!-- ============================= -->
   <!-- LISTADO -->
@@ -54,7 +52,7 @@
         <table class="table align-middle">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Título</th>
               <th>Contenido</th>
               <th class="text-end">Acciones</th>
@@ -62,54 +60,55 @@
           </thead>
           <tbody>
 
-            <% biografias.forEach(bio => { %>
-
+            <% biografias.forEach((bio, index) => { %>
               <tr>
-                <td><%= bio.id %></td>
 
-                <!-- EDIT INLINE -->
-                <td colspan="3">
+                <!-- Contador visual -->
+                <td><%= index + 1 %></td>
 
-                  <form action="/admin/biografia/update/<%= bio.id %>" method="POST">
+                <!-- Título -->
+                <td>
+                  <input type="text"
+                         name="title"
+                         value="<%= bio.title %>"
+                         class="form-control"
+                         form="form-update-<%= bio.id %>">
+                </td>
 
-                    <div class="row g-2 align-items-center">
+                <!-- Contenido -->
+                <td>
+                  <input type="text"
+                         name="content"
+                         value="<%= bio.content %>"
+                         class="form-control"
+                         form="form-update-<%= bio.id %>">
+                </td>
 
-                      <div class="col-md-3">
-                        <input type="text"
-                               name="title"
-                               value="<%= bio.titulo %>"
-                               class="form-control">
-                      </div>
+                <!-- Acciones -->
+                <td class="text-end">
 
-                      <div class="col-md-5">
-                        <input type="text"
-                               name="content"
-                               value="<%= bio.contenido %>"
-                               class="form-control">
-                      </div>
-
-                      <div class="col-md-4 text-end">
-
-                        <button class="btn btn-sm btn-outline-success me-2">
-                          Actualizar
-                        </button>
-
+                  <!-- FORM UPDATE -->
+                  <form id="form-update-<%= bio.id %>"
+                        action="/admin/biografia/editar/<%= bio.id %>"
+                        method="POST"
+                        style="display:inline;">
+                    <button class="btn btn-sm btn-outline-success me-2">
+                      Actualizar
+                    </button>
                   </form>
 
-                        <form action="/admin/biografia/delete/<%= bio.id %>"
-                              method="POST"
-                              style="display:inline;">
-                          <button class="btn btn-sm btn-outline-danger">
-                            Eliminar
-                          </button>
-                        </form>
-
-                      </div>
-                    </div>
+                  <!-- FORM DELETE -->
+                  <form action="/admin/biografia/eliminar/<%= bio.id %>"
+                        method="POST"
+                        style="display:inline;">
+                    <button class="btn btn-sm btn-outline-danger">
+                      Eliminar
+                    </button>
+                  </form>
 
                 </td>
-              </tr>
 
+              </tr>
             <% }) %>
 
           </tbody>

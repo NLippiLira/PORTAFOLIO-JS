@@ -34,20 +34,20 @@ const getBiography = async () => {
 // ==============================
 // CREAR
 // ==============================
-const createBiography = async (titulo, contenido) => {
+const createBiography = async (title, content) => {
   await pool.query(
-    'INSERT INTO biographies (titulo, contenido) VALUES ($1, $2)',
-    [titulo, contenido]
+    'INSERT INTO biographies (title, content) VALUES ($1, $2)',
+    [title, content]
   )
 }
 
 // ==============================
 // ACTUALIZAR
 // ==============================
-const updateBiography = async (id, titulo, contenido) => {
+const updateBiography = async (id, title, content) => {
   await pool.query(
-    'UPDATE biographies SET titulo = $1, contenido = $2 WHERE id = $3',
-    [titulo, contenido, id]
+    'UPDATE biographies SET title = $1, content = $2 WHERE id = $3',
+    [title, content, id]
   )
 }
 
