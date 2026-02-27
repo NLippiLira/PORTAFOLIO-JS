@@ -8,6 +8,7 @@ const flash = require('connect-flash')
 
 const app = express()
 
+
 /* ================================
    CONFIGURACIÓN BÁSICA
 ================================ */
