@@ -39,7 +39,9 @@ exports.sendMessage = async (req, res) => {
 
     // 2️⃣ Intentar enviar correo (no bloquea si falla)
     try {
-      await mailService.sendContactMail({ name, email, message })
+     mailService.sendContactMail({ name, email, message })
+  .then(() => console.log('Correo enviado correctamente'))
+  .catch(err => console.error('Error enviando correo:', err.message))
     } catch (mailError) {
       console.error('Error enviando correo:', mailError.message)
       // No detenemos el flujo si falla el email
