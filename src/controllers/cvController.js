@@ -42,7 +42,7 @@ exports.upload = async (req, res) => {
 // Eliminar CV
 exports.delete = async (req, res) => {
   try {
-    const filePath = path.join(__dirname, '../public/uploads/cv.pdf')
+    const filePath = path.join(__dirname, '../uploads/cv.pdf')
 
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath)
