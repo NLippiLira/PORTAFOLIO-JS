@@ -1,159 +1,128 @@
-<%- include('../layouts/app', { title: 'Inicio | Nicolás Lippi', body: `
-<section class="hero-section">
-  <div class="container">
-    <div class="row align-items-center text-center text-md-start">
+<%- include('../layouts/app', { 
+  title: 'Inicio | Nicolás Lippi',
+  body: `
+  
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center text-center text-md-start">
 
-      <!-- Imagen primero en móvil -->
-      <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0" data-aos="fade-left">
-        <img src="/img/fotoparaCV.jpeg"
-             alt="Nicolás Lippi"
-             class="img-fluid hero-img">
-      </div>
-
-      <!-- Texto -->
-      <div class="col-12 col-md-6 order-2 order-md-1" data-aos="fade-right">
-        <h1 class="hero-title fw-bold mb-3">
-          Hola, soy Nicolás Lippi
-        </h1>
-
-        <p class="hero-subtitle mb-4">
-          Desarrollador Full Stack JavaScript enfocado en crear aplicaciones web
-          profesionales, escalables y seguras.
-        </p>
-
-        <div class="d-grid gap-3 d-md-flex justify-content-md-start">
-          <a href="/proyectos" class="btn btn-primary btn-lg">
-            Ver Proyectos
-          </a>
-          <a href="/contacto" class="btn btn-outline-secondary btn-lg">
-            Contáctame
-          </a>
+        <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+          <img src="/img/fotoparaCV.jpeg"
+               alt="Nicolás Lippi"
+               class="img-fluid hero-img">
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-` }) %>
+        <div class="col-12 col-md-6 order-2 order-md-1">
+          <h1 class="hero-title fw-bold mb-3">
+            Hola, soy Nicolás Lippi
+          </h1>
 
-<section class="skills-section mb-5">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-4" data-aos="fade-up">Stack Tecnológico</h2>
+          <p class="hero-subtitle mb-4">
+            Desarrollador Full Stack JavaScript enfocado en crear aplicaciones web
+            profesionales, escalables y seguras.
+          </p>
 
-    <div class="row text-center g-4">
-      <div class="col-md-3" data-aos="zoom-in">
-        <div class="card skill-card">
-          <i class="bi bi-node-plus"></i>
-          <h5>Node.js</h5>
+          <div class="d-grid gap-3 d-md-flex justify-content-md-start">
+            <a href="/proyectos" class="btn btn-primary btn-lg">
+              Ver Proyectos
+            </a>
+            <a href="/contacto" class="btn btn-outline-light btn-lg">
+              Contáctame
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-3" data-aos="zoom-in">
-        <div class="card skill-card">
-          <i class="bi bi-bootstrap"></i>
-          <h5>Bootstrap</h5>
-        </div>
-      </div>
-
-      <div class="col-md-3" data-aos="zoom-in">
-        <div class="card skill-card">
-          <i class="bi bi-database"></i>
-          <h5>PostgreSQL</h5>
-        </div>
-      </div>
-
-      <div class="col-md-3" data-aos="zoom-in">
-        <div class="card skill-card">
-          <i class="bi bi-code-slash"></i>
-          <h5>MVC Architecture</h5>
-        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="projects-section mb-5">
-  <div class="container">
-    <h2 class="fw-bold text-center mb-4" data-aos="fade-up">
-      Proyectos Destacados
-    </h2>
+  <!-- SKILLS -->
+  <section class="skills-section mb-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4">Stack Tecnológico</h2>
 
-    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <div class="card skill-card">
+            <i class="bi bi-node-plus"></i>
+            <h5>Node.js</h5>
+          </div>
+        </div>
 
-        <div class="carousel-item active">
-          <div class="row justify-content-center">
-            <div class="col-11 col-sm-8 col-md-4">
-              <div class="card project-card">
-                <img src="/img/askjaskj1.jpg" class="card-img-top" alt="Proyecto 1">
-                <div class="card-body">
-                  <h5 class="card-title">Portafolio Personal</h5>
-                  <p class="card-text">HMTL, CSS, Bootstrap</p>
-                  <a href="https://nlippilira.github.io/mi-portafolio/" class="btn btn-sm btn-primary">Ver más</a>
+        <div class="col-6 col-md-3">
+          <div class="card skill-card">
+            <i class="bi bi-bootstrap"></i>
+            <h5>Bootstrap</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="card skill-card">
+            <i class="bi bi-database"></i>
+            <h5>PostgreSQL</h5>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div class="card skill-card">
+            <i class="bi bi-code-slash"></i>
+            <h5>MVC</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects-section mb-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-4">
+        Proyectos Destacados
+      </h2>
+
+      <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-11 col-sm-8 col-md-4">
+                <div class="card project-card">
+                  <img src="/img/askjaskj1.jpg" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Portafolio Personal</h5>
+                    <p class="card-text">HTML, CSS, Bootstrap</p>
+                    <a href="#" class="btn btn-sm btn-primary">Ver más</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
 
-        <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-4">
-              <div class="card project-card">
-                <img src="/img/smartboardimg.jpg" class="card-img-top" alt="Proyecto 2">
-                <div class="card-body">
-                  <h5 class="card-title">Sistema CRUD SmartBoard</h5>
-                  <p class="card-text">CRUD + Node.js + PostgreSQL</p>
-                  <a href="https://nlippilira.github.io/smartboard/" class="btn btn-sm btn-primary">Ver más</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
- <div class="carousel-item">
-          <div class="row justify-content-center">
-            <div class="col-md-4">
-              <div class="card project-card">
-                <img src="/img/weatherflowimg.jpg" class="card-img-top" alt="Proyecto 3">
-                <div class="card-body">
-                  <h5 class="card-title">Sistema API WeatherFlow</h5>
-                  <p class="card-text"> Node.js + ApiRest + Bootstrap</p>
-                  <a href="https://nlippilira.github.io/weatherflow/" class="btn btn-sm btn-primary">Ver más</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- CTA -->
+  <section class="cta-section text-center py-5">
+    <div class="container">
+      <h2 class="fw-bold mb-3">¿Trabajamos juntos?</h2>
+      <p class="lead mb-4">
+        Estoy abierto a nuevas oportunidades y desafíos profesionales.
+      </p>
+      <a href="/contacto" class="btn btn-lg btn-primary">
+        Contáctame
+      </a>
+    </div>
+  </section>
 
-
-<section class="cta-section text-center py-5">
-  <div class="container">
-    <h2 class="fw-bold mb-3" data-aos="fade-up">¿Trabajamos juntos?</h2>
-    <p class="lead mb-4" data-aos="fade-up">
-      Estoy abierto a nuevas oportunidades y desafíos profesionales.
-    </p>
-    <a href="/contacto" class="btn btn-lg btn-primary">
-      Contáctame
-    </a>
-  </div>
-</section>
-
-<a href="/uploads/cv.pdf" target="_blank" class="btn btn-outline-light">
-  Descargar CV
-</a>
+  `
+}) %>
