@@ -478,3 +478,109 @@ body {
   }
 
 }
+
+/* ===================================== */
+/* HERO BACKGROUND MODERNO */
+/* ===================================== */
+
+.hero-section {
+  position: relative;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #0d6efd);
+  color: white;
+  overflow: hidden;
+}
+
+/* efecto glow sutil */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+  top: -100px;
+  right: -100px;
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.hero-img {
+  max-width: 220px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255,255,255,0.25);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+
+  .hero-section {
+    padding: 6rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-img {
+    max-width: 360px;
+  }
+}
+/* ===================================== */
+/* CAROUSEL MOBILE OPTIMIZADO */
+/* ===================================== */
+
+.projects-section {
+  padding: 4rem 1rem;
+  background: #f8f9fa;
+}
+
+.project-card {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  background: #ffffff;
+}
+
+.project-card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+}
+
+/* Mejorar botones del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  padding: 15px;
+}
+
+/* Indicadores más modernos */
+.carousel-indicators [data-bs-target] {
+  background-color: #0d6efd;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
