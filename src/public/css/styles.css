@@ -601,3 +601,46 @@ section {
     padding-bottom: 6rem;
   }
 }
+/* ===================================== */
+/* SIDEBAR FIX MOBILE */
+/* ===================================== */
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    width: 70px !important;
+  }
+
+  .sidebar:hover {
+    width: 70px !important;
+  }
+
+  .sidebar:hover ~ .main-content {
+    margin-left: 70px !important;
+  }
+
+}
+/* ===================================== */
+/* FIX INDICADORES CAROUSEL MOBILE */
+/* ===================================== */
+
+.projects-section {
+  padding-bottom: 5rem;
+}
+
+.carousel-indicators {
+  bottom: -25px;
+}
+
+.carousel-indicators button {
+  pointer-events: auto;
+}
+
+/* Más espacio en móvil */
+@media (max-width: 576px) {
+
+  .project-card {
+    margin-bottom: 2.5rem;
+  }
+
+}
