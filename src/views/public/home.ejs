@@ -1,19 +1,21 @@
 <%- include('../layouts/app', { 
   title: 'Inicio | Nicolás Lippi',
   body: `
-  
+
   <!-- HERO -->
   <section class="hero-section">
     <div class="container">
       <div class="row align-items-center text-center text-md-start">
 
-        <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+        <!-- Imagen -->
+        <div class="col-12 col-md-6 order-1 order-md-2 mb-4 mb-md-0" data-aos="fade-left">
           <img src="/img/fotoparaCV.jpeg"
                alt="Nicolás Lippi"
                class="img-fluid hero-img">
         </div>
 
-        <div class="col-12 col-md-6 order-2 order-md-1">
+        <!-- Texto -->
+        <div class="col-12 col-md-6 order-2 order-md-1" data-aos="fade-right">
           <h1 class="hero-title fw-bold mb-3">
             Hola, soy Nicolás Lippi
           </h1>
@@ -38,36 +40,38 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="skills-section mb-5">
+  <section class="skills-section">
     <div class="container">
-      <h2 class="fw-bold text-center mb-4">Stack Tecnológico</h2>
+      <h2 class="fw-bold text-center mb-5" data-aos="fade-up">
+        Stack Tecnológico
+      </h2>
 
       <div class="row text-center g-4">
-        <div class="col-6 col-md-3">
-          <div class="card skill-card">
+        <div class="col-6 col-md-3" data-aos="zoom-in">
+          <div class="card skill-card h-100">
             <i class="bi bi-node-plus"></i>
-            <h5>Node.js</h5>
+            <h5 class="mt-3">Node.js</h5>
           </div>
         </div>
 
-        <div class="col-6 col-md-3">
-          <div class="card skill-card">
+        <div class="col-6 col-md-3" data-aos="zoom-in">
+          <div class="card skill-card h-100">
             <i class="bi bi-bootstrap"></i>
-            <h5>Bootstrap</h5>
+            <h5 class="mt-3">Bootstrap</h5>
           </div>
         </div>
 
-        <div class="col-6 col-md-3">
-          <div class="card skill-card">
+        <div class="col-6 col-md-3" data-aos="zoom-in">
+          <div class="card skill-card h-100">
             <i class="bi bi-database"></i>
-            <h5>PostgreSQL</h5>
+            <h5 class="mt-3">PostgreSQL</h5>
           </div>
         </div>
 
-        <div class="col-6 col-md-3">
-          <div class="card skill-card">
+        <div class="col-6 col-md-3" data-aos="zoom-in">
+          <div class="card skill-card h-100">
             <i class="bi bi-code-slash"></i>
-            <h5>MVC</h5>
+            <h5 class="mt-3">MVC Architecture</h5>
           </div>
         </div>
       </div>
@@ -75,24 +79,74 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="projects-section mb-5">
+  <section class="projects-section">
     <div class="container">
-      <h2 class="fw-bold text-center mb-4">
+      <h2 class="fw-bold text-center mb-5" data-aos="fade-up">
         Proyectos Destacados
       </h2>
 
       <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2"></button>
+        </div>
+
         <div class="carousel-inner">
 
+          <!-- Proyecto 1 -->
           <div class="carousel-item active">
             <div class="row justify-content-center">
               <div class="col-11 col-sm-8 col-md-4">
                 <div class="card project-card">
-                  <img src="/img/askjaskj1.jpg" class="card-img-top">
-                  <div class="card-body">
+                  <img src="/img/askjaskj1.jpg" class="card-img-top" alt="Proyecto 1">
+                  <div class="card-body text-center">
                     <h5 class="card-title">Portafolio Personal</h5>
                     <p class="card-text">HTML, CSS, Bootstrap</p>
-                    <a href="#" class="btn btn-sm btn-primary">Ver más</a>
+                    <a href="https://nlippilira.github.io/mi-portafolio/" 
+                       class="btn btn-primary btn-sm">
+                       Ver más
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 2 -->
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-11 col-sm-8 col-md-4">
+                <div class="card project-card">
+                  <img src="/img/smartboardimg.jpg" class="card-img-top" alt="Proyecto 2">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Sistema CRUD SmartBoard</h5>
+                    <p class="card-text">Node.js + PostgreSQL</p>
+                    <a href="https://nlippilira.github.io/smartboard/" 
+                       class="btn btn-primary btn-sm">
+                       Ver más
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proyecto 3 -->
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-11 col-sm-8 col-md-4">
+                <div class="card project-card">
+                  <img src="/img/weatherflowimg.jpg" class="card-img-top" alt="Proyecto 3">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Sistema API WeatherFlow</h5>
+                    <p class="card-text">Node.js + API REST</p>
+                    <a href="https://nlippilira.github.io/weatherflow/" 
+                       class="btn btn-primary btn-sm">
+                       Ver más
+                    </a>
                   </div>
                 </div>
               </div>
@@ -101,26 +155,39 @@
 
         </div>
 
+        <!-- Controles -->
         <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
         </button>
+
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section text-center py-5">
+  <section class="cta-section text-center">
     <div class="container">
-      <h2 class="fw-bold mb-3">¿Trabajamos juntos?</h2>
-      <p class="lead mb-4">
+      <h2 class="fw-bold mb-3" data-aos="fade-up">
+        ¿Trabajamos juntos?
+      </h2>
+
+      <p class="lead mb-4" data-aos="fade-up">
         Estoy abierto a nuevas oportunidades y desafíos profesionales.
       </p>
-      <a href="/contacto" class="btn btn-lg btn-primary">
+
+      <a href="/contacto" class="btn btn-light btn-lg">
         Contáctame
       </a>
+
+      <div class="mt-4">
+        <a href="/uploads/cv.pdf" target="_blank" class="btn btn-outline-light">
+          Descargar CV
+        </a>
+      </div>
     </div>
   </section>
 

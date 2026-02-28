@@ -584,3 +584,20 @@ body {
   height: 10px;
   border-radius: 50%;
 }
+/* ===================================== */
+/* SISTEMA DE ESPACIADO ENTRE SECCIONES */
+/* ===================================== */
+
+/* Espaciado base mobile */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Más aire en desktop */
+@media (min-width: 768px) {
+  section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
