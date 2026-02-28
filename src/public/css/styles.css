@@ -419,3 +419,62 @@ body {
   box-shadow: 0 20px 35px rgba(0,0,0,0.4);
   color: #fff;
 }
+/* ===================================== */
+/* HERO MOBILE FIRST PROFESIONAL */
+/* ===================================== */
+
+.hero-section {
+  padding: 3rem 1rem;
+}
+
+.hero-title {
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.hero-img {
+  max-width: 220px;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(13,110,253,0.35);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+
+  .hero-section {
+    padding: 5rem 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-img {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .main-content {
+    padding: 20px 15px;
+  }
+
+  .skill-card {
+    padding: 20px 15px;
+  }
+
+  .project-card img {
+    height: 180px;
+  }
+
+}
