@@ -232,3 +232,53 @@
   box-shadow: 0 20px 35px rgba(0,0,0,0.3);
   color: white;
 }
+
+/* ============================= */
+/* FLOATING NAV BUTTONS */
+/* ============================= */
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+/* Variante Dashboard → Login */
+.floating-logout {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* Variante Login → Home */
+.floating-home {
+  background: linear-gradient(135deg, #0d6efd, #2563eb);
+}
+
+/* Hover */
+.floating-btn:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  color: white;
+}
+
+/* Mobile ajuste */
+@media (max-width: 768px) {
+  .floating-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.2rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
