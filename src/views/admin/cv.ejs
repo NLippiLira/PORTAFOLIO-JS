@@ -32,10 +32,11 @@
         <p><strong><%= cv.originalname %></strong></p>
 
         <div class="d-flex gap-2">
+         
+          <% if (cv) { %>
           <a href="<%= cv.file_url %>" target="_blank">
   Ver CV
-</a>
-          <% if (cv) { %>
+</a>   
   <a href="<%= cv.file_url %>" 
      class="btn btn-primary" 
      target="_blank"

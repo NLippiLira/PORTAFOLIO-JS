@@ -48,9 +48,12 @@
         </a>
       </li>
       <li>
-        <a href="<%= cv.file_url %>" target="_blank">
-  Ver CV
-</a>
+        <% if (cv) { %>
+          <a href="<%= cv.file_url %>" target="_blank">
+            <i class="bi bi-file-earmark-pdf"></i>
+            <span>CV</span>
+          </a>
+        <% } %>
       </li>
       <li>
         <a href="/contacto">
