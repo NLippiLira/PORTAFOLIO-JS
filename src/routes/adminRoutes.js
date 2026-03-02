@@ -9,8 +9,7 @@ const cvController = require('../controllers/cvController')
 
 const upload = require('../config/multer.js');
 const biographyModel = require('../models/biographyModel')
-
-const upload = require('../config/multerCloudinary.js');
+import upload from '../config/multerCloudinary.js';
 
 
 
