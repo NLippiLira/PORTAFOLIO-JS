@@ -1,16 +1,16 @@
-import multer from 'multer';
-import { CloudinaryStorage } from 'multer-storage-cloudinary';
-import cloudinary from './cloudinary.js';
+const multer = require('multer');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('./cloudinary');
 
 const storage = new CloudinaryStorage({
-  cloudinary,
+  cloudinary: cloudinary,
   params: {
     folder: 'portafolio_cv',
-    resource_type: 'raw', // importante para PDF
+    resource_type: 'raw',
     allowed_formats: ['pdf'],
   },
 });
 
 const upload = multer({ storage });
 
-export default upload;
+module.exports = upload;
