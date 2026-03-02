@@ -7,7 +7,7 @@ const adminController = require('../controllers/adminController')
 const contactAdminController = require('../controllers/contactAdminController')
 const cvController = require('../controllers/cvController')
 
-
+const upload = require('../config/multer.js');
 const biographyModel = require('../models/biographyModel')
 
 const upload = require('../config/multerCloudinary.js');
