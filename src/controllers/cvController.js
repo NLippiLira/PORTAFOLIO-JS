@@ -9,13 +9,13 @@ exports.home = async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM cvs LIMIT 1');
 
-    res.render('public/home', {
+    res.render('layout/app', {
       cv: result.rows[0] || null
     });
 
   } catch (error) {
     console.error(error);
-    res.render('public/home', {
+    res.render('layout/app', {
       cv: null
     });
   }
