@@ -143,7 +143,7 @@ router.get('/proyectos', (req, res) => {
 })
 
 router.get('/cv', cvController.index)
-router.post('/admin/cv/upload', upload.single('cv'), cvController.upload);
+router.post('/cv/upload', upload.single('cv'), cvController.upload);
 router.post('/cv/delete', cvController.delete)
 
 
