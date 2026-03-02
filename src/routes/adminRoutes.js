@@ -7,10 +7,10 @@ const adminController = require('../controllers/adminController')
 const contactAdminController = require('../controllers/contactAdminController')
 const cvController = require('../controllers/cvController')
 
-const upload = require('../config/multer')
+
 const biographyModel = require('../models/biographyModel')
 
-import upload from '../config/multerCloudinary.js';
+const upload = require('../config/multerCloudinary.js');
 
 
 
@@ -145,7 +145,7 @@ router.get('/proyectos', (req, res) => {
 })
 
 router.get('/cv', cvController.index)
-router.post('/admin/cv/upload', upload.single('cv'), cvController.uploadCV);
+router.post('/admin/cv/upload', upload.single('cv'), cvController.upload);
 router.post('/cv/delete', cvController.delete)
 
 
