@@ -4,7 +4,6 @@ const cloudinary = require('../config/cloudinary'); // asegúrate que exporte v2
 // NO más path
 
 //public
-const pool = require('../config/db');
 
 exports.home = async (req, res) => {
   try {
