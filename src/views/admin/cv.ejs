@@ -32,18 +32,9 @@
         <p><strong><%= cv.originalname %></strong></p>
 
         <div class="d-flex gap-2">
-         
-          <% if (cv) { %>
-          <a href="<%= cv.file_url %>" target="_blank">
-  Ver CV
-</a>   
-  <a href="<%= cv.file_url %>" 
-     class="btn btn-primary" 
-     target="_blank"
-     download>
-     <i class="bi bi-download me-2"></i> Descargar CV
-  </a>
-<% } %>
+          <a href="/uploads/cv.pdf" target="_blank" class="btn btn-outline-dark btn-sm">
+            Ver CV
+          </a>
 
           <form action="/admin/cv/delete" method="POST">
             <button class="btn btn-outline-danger btn-sm">
