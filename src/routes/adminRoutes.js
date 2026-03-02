@@ -10,6 +10,9 @@ const cvController = require('../controllers/cvController')
 const upload = require('../config/multer')
 const biographyModel = require('../models/biographyModel')
 
+import upload from '../config/multerCloudinary.js';
+
+
 
 // =====================================================
 // 🔓 LOGIN
@@ -142,8 +145,10 @@ router.get('/proyectos', (req, res) => {
 })
 
 router.get('/cv', cvController.index)
-router.post('/cv', upload.single('cv'), cvController.upload)
+router.post('/admin/cv/upload', upload.single('cv'), cvController.uploadCV);
 router.post('/cv/delete', cvController.delete)
+
+
 
 router.get('/contactos', contactAdminController.inbox)
 router.get('/contactos/:id', contactAdminController.showMessage)
