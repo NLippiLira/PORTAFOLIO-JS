@@ -53,10 +53,13 @@
           <span>Curriculum</span>
         </a>
       </li>
-      <li><a href="<%= cv.file_url %>" target="_blank" download="<%= cv.originalname %>">
+      <li>
+        <% if (cv) { %>
+        <a href="<%= cv.file_url %>" target="_blank" download="<%= cv.originalname %>">
        <i class="bi bi-download me-2"></i>
        <span>Descargar CV</span>
       </a>
+        <% } %>
       </li>
       
      
